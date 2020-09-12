@@ -33,7 +33,7 @@ const item = {
     description: "test",
     //image: faker.image.image(),
   }
-  list.push(item);
+  list.push(item); 
   
 // yerbaRouter.post("/", (req, res) => {
 //     console.log("req", req.body);
