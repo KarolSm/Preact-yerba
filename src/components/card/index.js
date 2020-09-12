@@ -39,8 +39,8 @@ const item = {
 //     console.log("req", req.body);
 //     // id, desc, name, image
 //     const card = req.body;
-//     card.id = "Pizdaaaaaaa"; //dodawanie do obiektu nowego property
-//     card.image = "kurwa chuj"; // dodawanie do obiektu nowego property
+//     card.id = "test"; //dodawanie do obiektu nowego property
+//     card.image = "test"; // dodawanie do obiektu nowego property
 //     console.log("jak wyglada karta", card);
 //     list.push(card);
 //     res.send(card);
