@@ -1,68 +1,51 @@
-import { h, Component } from 'preact';
-//import Card from "../../components/card"
-import style from './style.css';
-	
+import { Component, h } from "preact";
+import Card from "../../components/card";
+import style from "./style.css";
 
-
+// now below is a Class Component
 class Home extends Component {
-	state={list:[]}
-		
+  // state is property of Home class (you can use it like this: "this.state")
+  state = { list: [] };
 
+  componentDidMount() {
+    // here we make a call to our API
+    fetch('http://localhost:3000/yerba')
+    // when data arrives we parse it to JSON
+      .then(res => res.json())
+      // JSON returned from above function comes here as "data" (you can call it "pies" and it will work as well - its just first argument)
+    	.then((data) => {
+    		console.log('what data did arrive ?', data);
+        // NOTE: data can have the list nested e.g. data.items or data.list or it can be just data (I dont remember)
 
-	constructor() {
-	  super();
-	  this.state = { time: Date.now() };
-	}
-  
-	// Lifecycle: Called whenever our component is created
-	componentDidMount() {
-	  // update time every second
-	  fetch("http://localhost:3000/yerba")
-	  .then(response => response.json())
-	  .then(list => console.log(list));
+        // here we update our state - render function will be called automatically with new data
+			this.setState({ list: data })
+			console.log("List", this.state);
+    	});
 
-	  this.timer = setInterval(() => {
-		this.setState({ time: Date.now() });
-	  }, 1000);
-	}
-  
-	// Lifecycle: Called just before our component will be destroyed
-	componentWillUnmount() {
-	  // stop when not renderable
-	  clearInterval(this.timer);
-	}
-	
-	render() {
-		console.log("lista", list);
-		
-		return(	
-		<div class={style.home}>
-		<h1>Home</h1>
-		<p>This is the Home component.</p>
-		<Card item={ this.State.list[0] } /> {/*tu bedzie if  */}
-		
-		<div class={style["col s12 m7"]} data-id={list.id}>
-		<div class={style["card horizontal"]}>
-			<div class={style["card-image"]}>
-				<img src={list.image} />
-			</div>
-			<div class="card-stacked">
-				<div class="card-content">
-					<h5>{list.name}</h5>
-					<p>{list.description}</p>
-				</div>
-				<div class={style.buttons}>
-					<button class="button-delete btn-flat btn-large" type="delButton"><i style="line-height: 1.6;"
-							class="material-icons" data-id={list.id}>delete</i></button>
-					<button class="button-edit btn-flat btn-large" type="editButton"><i style="line-height: 1.6;"
-							class="material-icons" data-id={list.id}>edit</i></button>
-				</div>
-			</div>
-		</div>
-		</div>
-		</div>
-		);
-		}
+    // show some card after 2 seconds
+    setTimeout(() => {
+      this.setState({
+        list: [
+          {
+            id: "123",
+            name: "test name",
+            description: "lorem ipsum",
+            image: "#",
+          },
+        ],
+      });
+    }, 2000);
   }
+
+  render() {
+    return (
+      <div class={style.home}>
+        <h1>Home</h1>
+        <p>This is the Home component.</p>
+        {this.state.list.length > 0 ? <Card item={this.state.list[0]} /> : <span>No Cards</span>}
+      </div>
+    );
+  }
+}
 
 export default Home;
