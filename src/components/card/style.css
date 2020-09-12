@@ -21,11 +21,11 @@
   margin: 0px 40px 0px 40px;
 }
 
-.card.horizontal {
+.card .horizontal {
   background-color: #e8f5e9;
 }
 
-.buttons {
+.card .buttons {
   display: flex;
   justify-content: flex-end;
 }
