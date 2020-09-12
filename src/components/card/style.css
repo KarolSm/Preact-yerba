@@ -1,0 +1,31 @@
+.card {
+  color: #000000;
+  background-color: #111111;
+}
+.card col{
+    background-color: aqua !important;
+}
+.card-image {
+  margin: auto;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+}
+.card-image img {
+  border-radius: 50% !important;
+  width: auto;
+  height: 100%;
+  margin: 0px 40px 0px 40px;
+}
+
+.card.horizontal {
+  background-color: #e8f5e9;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+}
