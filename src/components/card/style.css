@@ -1,24 +1,9 @@
 .card {
   color: #000000;
-  background-color: #111111;
+  transition: all ease-in-out 0.2s;
 }
-.card col{
-    background-color: aqua !important;
-}
-.card-image {
-  margin: auto;
-  width: 3rem;
-  height: 3rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 50;
-}
-.card-image img {
-  border-radius: 50% !important;
-  width: auto;
-  height: 100%;
-  margin: 0px 40px 0px 40px;
+.card col {
+  background-color: aqua !important;
 }
 
 .card.horizontal {
@@ -29,3 +14,29 @@
   display: flex;
   justify-content: flex-end;
 }
+
+.card-image {
+  display: flex;
+  align-items: center;
+  margin-left: 2rem;
+}
+
+.img-placeholder {
+  background-color: antiquewhite;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+
+/** cool effect below */
+/* .card:focus-within~.card, .card:hover~.card {
+  transform: translateY(130px);
+}
+
+.card:hover {
+  transform: translateX(1rem);
+}
+
+.card:not(:first-child) {
+  margin-top: -130px;
+} */
