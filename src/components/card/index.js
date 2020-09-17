@@ -8,7 +8,7 @@ const Card = (props) => {
     <div class={style.card}>
       <div class="col s12 m7" data-id={item.id}>
         <div class="card horizontal">
-          <div class="card-image">
+          <div class={style["card-image"]}>
             <img src={item.image} />
           </div>
           <div class="card-stacked">
@@ -16,7 +16,7 @@ const Card = (props) => {
               <h5>{item.name}</h5>
               <p>{item.description}</p>
             </div>
-            <div class="buttons">
+            <div class={style.buttons}>
               <button class="button-delete btn-flat btn-large" type="delButton">
                 <i
                   style="line-height: 1.6;"
